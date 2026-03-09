@@ -3,166 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F1 Blog - Notícias, Calendário, Pilotos e Equipes</title>
+    <title>F1 Blog – Circuitos & Equipes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="modo-toggle">🌓</button>
 
-    <!-- Tela de Login/Cadastro -->
-    <div id="auth-screen">
-        <div class="auth-container">
-            <h1>🏁 F1 BLOG</h1>
-            <div class="tabs">
-                <button id="tab-login" class="active">Login</button>
-                <button id="tab-register">Cadastro</button>
+    <button id="modo-toggle" title="Alternar tema">🌓</button>
+
+    <!-- Menu Hambúrguer -->
+    <button id="hamburger-menu" class="hamburger"><span></span><span></span><span></span></button>
+    <nav id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <img id="mobile-logo" src="logo3_0.svg" alt="F1 Blog" height="36">
+            <button id="close-menu" class="close-btn">×</button>
+        </div>
+        <div class="mobile-menu-content">
+            <a href="#circuits-section" class="menu-link">🗺️ Circuitos</a>
+            <a href="#teams-section"    class="menu-link">🏁 Equipes</a>
+            <div class="menu-divider"></div>
+            <button id="mobile-admin-btn" class="menu-admin-btn">👑 Admin</button>
+        </div>
+    </nav>
+    <div id="menu-overlay" class="menu-overlay"></div>
+
+    <!-- Cabeçalho -->
+    <header id="site-header">
+        <div class="header-inner">
+            <a href="#" class="header-logo">
+                <img id="main-logo" src="logo3_0.svg" alt="F1 Blog" height="44">
+            </a>
+            <nav class="header-nav">
+                <a href="#circuits-section">🗺️ Circuitos</a>
+                <a href="#teams-section">🏁 Equipes</a>
+                <button id="btn-admin-header" class="btn-admin-nav">👑 Admin</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-tag">Fórmula 1 — História Completa</div>
+            <h1 class="hero-title">Circuitos <span>&amp; Equipes</span></h1>
+            <p class="hero-sub">Cada traçado lendário e cada equipe que marcou a categoria máxima do automobilismo mundial, de 1950 até hoje.</p>
+            <div class="hero-actions">
+                <a href="#circuits-section" class="btn-hero">Ver Circuitos</a>
+                <a href="#teams-section"    class="btn-hero btn-hero-outline">Ver Equipes</a>
             </div>
-            
-            <div id="login-form">
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="password" id="password" placeholder="Senha" required>
-                <button id="btn-login">Entrar</button>
-                <div id="login-msg"></div>
-            </div>
-            
-            <div id="register-form" style="display:none">
-                <input type="text" id="name" placeholder="Nome" required>
-                <input type="email" id="reg-email" placeholder="Email" required>
-                <input type="password" id="reg-password" placeholder="Senha (6+ caracteres)" required minlength="6">
-                <button id="btn-register">Cadastrar</button>
-                <div id="register-msg"></div>
+        </div>
+        <div class="hero-deco">
+            <div class="deco-line dl1"></div>
+            <div class="deco-line dl2"></div>
+            <div class="deco-line dl3"></div>
+        </div>
+    </section>
+
+    <!-- Modal Login Admin -->
+    <div id="admin-login-modal" class="modal-overlay" style="display:none">
+        <div class="modal-box">
+            <button class="modal-close" id="close-admin-modal">×</button>
+            <h2>👑 Acesso Admin</h2>
+            <p class="modal-sub">Gerencie circuitos e equipes do blog.</p>
+            <input type="email"    id="admin-email"    placeholder="Email">
+            <input type="password" id="admin-password" placeholder="Senha">
+            <button id="btn-admin-login">Entrar</button>
+            <div id="admin-login-msg" class="form-msg"></div>
+            <div class="modal-footer-link">
+                Primeiro acesso? <button id="show-register" class="link-btn">Criar conta admin</button>
             </div>
         </div>
     </div>
 
-    <!-- Conteúdo Principal - TUDO EM UMA PÁGINA -->
-    <div id="main-content" style="display:none">
-        <header>
-            <div class="header-top">
-                <h1>🏁 F1 BLOG</h1>
-                <div class="user-info">
-                    <span id="user-display">Usuário</span>
-                    <span id="role-badge"></span>
-                    <button id="logout">Sair</button>
-                </div>
-            </div>
-            <p>Notícias, calendário, pilotos e equipes da Fórmula 1 - Temporada 2025</p>
-        </header>
+    <!-- Modal Cadastro -->
+    <div id="register-modal" class="modal-overlay" style="display:none">
+        <div class="modal-box">
+            <button class="modal-close" id="close-register-modal">×</button>
+            <h2>📝 Criar Admin</h2>
+            <p class="modal-sub">Crie a conta de administrador.</p>
+            <input type="text"     id="reg-name"     placeholder="Nome">
+            <input type="email"    id="reg-email"    placeholder="Email">
+            <input type="password" id="reg-password" placeholder="Senha (6+ caracteres)" minlength="6">
+            <button id="btn-register">Cadastrar</button>
+            <div id="register-msg" class="form-msg"></div>
+        </div>
+    </div>
 
-        <!-- Botão Admin (apenas para admin) -->
-        <button id="btn-admin" style="display:none">👑 Modo Admin</button>
-        
-        <!-- Painel Admin -->
-        <div id="admin-panel" style="display:none">
-            <div class="admin-tabs">
-                <button class="admin-tab-btn active" data-tab="news">Notícias</button>
-                <button class="admin-tab-btn" data-tab="races">Corridas</button>
-                <button class="admin-tab-btn" data-tab="drivers">Pilotos</button>
-                <button class="admin-tab-btn" data-tab="teams">Equipes</button>
-                <button class="admin-tab-btn" data-tab="users">Usuários</button>
+    <!-- Painel Admin -->
+    <div id="admin-panel" style="display:none">
+        <div class="admin-bar">
+            <span class="admin-bar-title">👑 Modo Admin</span>
+            <div class="admin-bar-tabs">
+                <button class="admin-tab-btn active" data-tab="circuits">Circuitos</button>
+                <button class="admin-tab-btn"        data-tab="teams">Equipes</button>
+                <button class="admin-tab-btn"        data-tab="users">Usuários</button>
             </div>
-            
-            <!-- Notícias -->
-            <div id="admin-news" class="admin-tab-content active">
-                <h3>Adicionar Notícia</h3>
-                <input type="text" id="news-title" placeholder="Título" required>
-                <textarea id="news-content" placeholder="Conteúdo" rows="3" required></textarea>
-                <button id="btn-publish">Publicar</button>
+            <button id="btn-logout-admin" class="btn-logout-admin">Sair</button>
+        </div>
+
+        <div class="admin-body">
+            <!-- Tab Circuitos -->
+            <div id="admin-circuits" class="admin-tab-content active">
+                <h3>Adicionar Circuito</h3>
+                <div class="admin-fields">
+                    <input type="text" id="circuit-name"    placeholder="Nome do circuito *" required>
+                    <input type="text" id="circuit-country" placeholder="País + emoji (ex: 🇧🇷 Brasil) *" required>
+                    <input type="text" id="circuit-city"    placeholder="Cidade *" required>
+                    <input type="text" id="circuit-length"  placeholder="Extensão (ex: 5,278 km)">
+                    <input type="text" id="circuit-laps"    placeholder="Nº de voltas (ex: 58)">
+                    <input type="text" id="circuit-year"    placeholder="Primeiro GP (ex: 1950)">
+                    <input type="text" id="circuit-region"  placeholder="Região (Europa / Américas / Ásia & Oceania / Oriente Médio)">
+                    <textarea id="circuit-desc" placeholder="Descrição" rows="2"></textarea>
+                </div>
+                <button id="btn-add-circuit">Adicionar Circuito</button>
             </div>
-            
-            <!-- Corridas -->
-            <div id="admin-races" class="admin-tab-content">
-                <h3>Adicionar Corrida</h3>
-                <input type="text" id="race-name" placeholder="Nome da corrida (ex: GP do Brasil)" required>
-                <input type="text" id="race-circuit" placeholder="Circuito (ex: Interlagos)" required>
-                <input type="date" id="race-date" required>
-                <input type="text" id="race-country" placeholder="País (ex: 🇧🇷 Brasil)" required>
-                <button id="btn-add-race">Adicionar Corrida</button>
-            </div>
-            
-            <!-- Pilotos -->
-            <div id="admin-drivers" class="admin-tab-content">
-                <h3>Adicionar Piloto</h3>
-                <input type="text" id="driver-name" placeholder="Nome completo" required>
-                <input type="text" id="driver-number" placeholder="Número (ex: 1, 44, 16)" required>
-                <input type="text" id="driver-country" placeholder="País (ex: 🇳🇱)" required>
-                <input type="text" id="driver-team" placeholder="Equipe (ex: Red Bull Racing)" required>
-                <textarea id="driver-bio" placeholder="Biografia curta" rows="2"></textarea>
-                <button id="btn-add-driver">Adicionar Piloto</button>
-            </div>
-            
-            <!-- Equipes -->
+
+            <!-- Tab Equipes -->
             <div id="admin-teams" class="admin-tab-content">
                 <h3>Adicionar Equipe</h3>
-                <input type="text" id="team-name" placeholder="Nome da equipe (ex: Red Bull Racing)" required>
-                <input type="text" id="team-country" placeholder="País (ex: 🇦🇹)" required>
-                <input type="text" id="team-base" placeholder="Base (ex: Milton Keynes, Reino Unido)" required>
-                <textarea id="team-description" placeholder="Descrição curta" rows="2"></textarea>
+                <div class="admin-fields">
+                    <input type="text" id="team-name"   placeholder="Nome da equipe *" required>
+                    <input type="text" id="team-country" placeholder="País + emoji (ex: 🇮🇹) *" required>
+                    <input type="text" id="team-base"   placeholder="Base (ex: Maranello, Itália)">
+                    <input type="text" id="team-years"  placeholder="Anos ativos (ex: 1950–presente)">
+                    <input type="text" id="team-titles" placeholder="Títulos de construtores (ex: 16)">
+                    <input type="text" id="team-status" placeholder="Status (ativa / histórica)">
+                    <textarea id="team-desc" placeholder="Descrição" rows="2"></textarea>
+                </div>
                 <button id="btn-add-team">Adicionar Equipe</button>
             </div>
-            
-            <!-- Usuários -->
+
+            <!-- Tab Usuários -->
             <div id="admin-users" class="admin-tab-content">
-                <h3>👥 Gerenciar Usuários</h3>
+                <h3>👥 Usuários</h3>
                 <div id="users-container"></div>
             </div>
         </div>
-
-        <!-- DESTAQUE PRINCIPAL -->
-        <section class="highlight-section">
-            <div class="highlight">
-                <h2>🏆 Max Verstappen é campeão mundial de F1 pela 5ª vez em 2025!</h2>
-                <p>O holandês da Red Bull Racing dominou a temporada com 14 vitórias e quebrou o recorde de pontos em uma única temporada.</p>
-                <span class="date">Publicado em: 05/12/2025</span>
-            </div>
-        </section>
-
-        <!-- ÚLTIMAS NOTÍCIAS -->
-        <section id="news-section">
-            <h2>📰 Últimas Notícias</h2>
-            <div id="news-list">
-                <!-- Notícias serão adicionadas aqui -->
-            </div>
-        </section>
-
-        <!-- PRÓXIMA CORRIDA -->
-        <section id="next-race-section">
-            <div class="next-race">
-                <h3>🏁 Próxima Corrida: Grande Prêmio de Abu Dhabi</h3>
-                <p>Yas Marina Circuit – 14 de dezembro de 2025 🇦🇪</p>
-                <div class="countdown">Faltam 5 dias para a última corrida da temporada!</div>
-            </div>
-        </section>
-
-        <!-- CALENDÁRIO -->
-        <section id="calendar-section">
-            <h2>📅 Calendário da Fórmula 1 - 2025</h2>
-            <div id="calendar-list">
-                <!-- Corridas serão adicionadas aqui -->
-            </div>
-        </section>
-
-        <!-- PILOTOS -->
-        <section id="drivers-section">
-            <h2>🏎️ Principais Pilotos da Temporada 2025</h2>
-            <div id="drivers-list" class="cards-grid">
-                <!-- Pilotos serão adicionados aqui -->
-            </div>
-        </section>
-
-        <!-- EQUIPES -->
-        <section id="teams-section">
-            <h2>🏁 Principais Equipes da Temporada 2025</h2>
-            <div id="teams-list" class="cards-grid">
-                <!-- Equipes serão adicionadas aqui -->
-            </div>
-        </section>
-
-        <footer>
-            <p>© 2025 F1Blog – Independente e apaixonado por Fórmula 1</p>
-            <p>Este site não é afiliado à Formula One World Championship Limited.</p>
-        </footer>
     </div>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <section id="circuits-section" class="content-section">
+            <div class="section-header">
+                <h2>🗺️ Circuitos</h2>
+                <div class="section-controls">
+                    <input type="text" id="circuit-search" class="search-input" placeholder="Buscar circuito...">
+                    <div class="filter-tabs">
+                        <button class="filter-btn active" data-filter="all">Todos</button>
+                        <button class="filter-btn" data-filter="Europa">Europa</button>
+                        <button class="filter-btn" data-filter="Américas">Américas</button>
+                        <button class="filter-btn" data-filter="Ásia & Oceania">Ásia &amp; Oceania</button>
+                        <button class="filter-btn" data-filter="Oriente Médio">Oriente Médio</button>
+                    </div>
+                </div>
+            </div>
+            <div id="circuits-list" class="cards-grid"></div>
+        </section>
+
+        <section id="teams-section" class="content-section">
+            <div class="section-header">
+                <h2>🏁 Equipes</h2>
+                <div class="section-controls">
+                    <input type="text" id="team-search" class="search-input" placeholder="Buscar equipe...">
+                    <div class="filter-tabs">
+                        <button class="filter-btn active" data-filter="all">Todas</button>
+                        <button class="filter-btn" data-filter="ativa">Ativas</button>
+                        <button class="filter-btn" data-filter="historica">Históricas</button>
+                    </div>
+                </div>
+            </div>
+            <div id="teams-list" class="cards-grid"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <img id="footer-logo" src="logo3_0.svg" alt="F1 Blog" height="32">
+            <p>© 2025 F1Blog – Independente e apaixonado por Fórmula 1</p>
+            <p class="footer-disclaimer">Este site não é afiliado à Formula One World Championship Limited.</p>
+        </div>
+    </footer>
 
     <div id="message"></div>
     <script src="script.js"></script>
