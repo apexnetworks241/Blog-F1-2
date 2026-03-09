@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Blog - Notícias, Calendário, Pilotos e Equipes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="modo-toggle">🌓</button>
+
+    <!-- Tela de Login/Cadastro -->
+    <div id="auth-screen">
+        <div class="auth-container">
+            <h1>🏁 F1 BLOG</h1>
+            <div class="tabs">
+                <button id="tab-login" class="active">Login</button>
+                <button id="tab-register">Cadastro</button>
+            </div>
+            
+            <div id="login-form">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Senha" required>
+                <button id="btn-login">Entrar</button>
+                <div id="login-msg"></div>
+            </div>
+            
+            <div id="register-form" style="display:none">
+                <input type="text" id="name" placeholder="Nome" required>
+                <input type="email" id="reg-email" placeholder="Email" required>
+                <input type="password" id="reg-password" placeholder="Senha (6+ caracteres)" required minlength="6">
+                <button id="btn-register">Cadastrar</button>
+                <div id="register-msg"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal - TUDO EM UMA PÁGINA -->
+    <div id="main-content" style="display:none">
+        <header>
+            <div class="header-top">
+                <h1>🏁 F1 BLOG</h1>
+                <div class="user-info">
+                    <span id="user-display">Usuário</span>
+                    <span id="role-badge"></span>
+                    <button id="logout">Sair</button>
+                </div>
+            </div>
+            <p>Notícias, calendário, pilotos e equipes da Fórmula 1 - Temporada 2025</p>
+        </header>
+
+        <!-- Botão Admin (apenas para admin) -->
+        <button id="btn-admin" style="display:none">👑 Modo Admin</button>
+        
+        <!-- Painel Admin -->
+        <div id="admin-panel" style="display:none">
+            <div class="admin-tabs">
+                <button class="admin-tab-btn active" data-tab="news">Notícias</button>
+                <button class="admin-tab-btn" data-tab="races">Corridas</button>
+                <button class="admin-tab-btn" data-tab="drivers">Pilotos</button>
+                <button class="admin-tab-btn" data-tab="teams">Equipes</button>
+                <button class="admin-tab-btn" data-tab="users">Usuários</button>
+            </div>
+            
+            <!-- Notícias -->
+            <div id="admin-news" class="admin-tab-content active">
+                <h3>Adicionar Notícia</h3>
+                <input type="text" id="news-title" placeholder="Título" required>
+                <textarea id="news-content" placeholder="Conteúdo" rows="3" required></textarea>
+                <button id="btn-publish">Publicar</button>
+            </div>
+            
+            <!-- Corridas -->
+            <div id="admin-races" class="admin-tab-content">
+                <h3>Adicionar Corrida</h3>
+                <input type="text" id="race-name" placeholder="Nome da corrida (ex: GP do Brasil)" required>
+                <input type="text" id="race-circuit" placeholder="Circuito (ex: Interlagos)" required>
+                <input type="date" id="race-date" required>
+                <input type="text" id="race-country" placeholder="País (ex: 🇧🇷 Brasil)" required>
+                <button id="btn-add-race">Adicionar Corrida</button>
+            </div>
+            
+            <!-- Pilotos -->
+            <div id="admin-drivers" class="admin-tab-content">
+                <h3>Adicionar Piloto</h3>
+                <input type="text" id="driver-name" placeholder="Nome completo" required>
+                <input type="text" id="driver-number" placeholder="Número (ex: 1, 44, 16)" required>
+                <input type="text" id="driver-country" placeholder="País (ex: 🇳🇱)" required>
+                <input type="text" id="driver-team" placeholder="Equipe (ex: Red Bull Racing)" required>
+                <textarea id="driver-bio" placeholder="Biografia curta" rows="2"></textarea>
+                <button id="btn-add-driver">Adicionar Piloto</button>
+            </div>
+            
+            <!-- Equipes -->
+            <div id="admin-teams" class="admin-tab-content">
+                <h3>Adicionar Equipe</h3>
+                <input type="text" id="team-name" placeholder="Nome da equipe (ex: Red Bull Racing)" required>
+                <input type="text" id="team-country" placeholder="País (ex: 🇦🇹)" required>
+                <input type="text" id="team-base" placeholder="Base (ex: Milton Keynes, Reino Unido)" required>
+                <textarea id="team-description" placeholder="Descrição curta" rows="2"></textarea>
+                <button id="btn-add-team">Adicionar Equipe</button>
+            </div>
+            
+            <!-- Usuários -->
+            <div id="admin-users" class="admin-tab-content">
+                <h3>👥 Gerenciar Usuários</h3>
+                <div id="users-container"></div>
+            </div>
+        </div>
+
+        <!-- DESTAQUE PRINCIPAL -->
+        <section class="highlight-section">
+            <div class="highlight">
+                <h2>🏆 Max Verstappen é campeão mundial de F1 pela 5ª vez em 2025!</h2>
+                <p>O holandês da Red Bull Racing dominou a temporada com 14 vitórias e quebrou o recorde de pontos em uma única temporada.</p>
+                <span class="date">Publicado em: 05/12/2025</span>
+            </div>
+        </section>
+
+        <!-- ÚLTIMAS NOTÍCIAS -->
+        <section id="news-section">
+            <h2>📰 Últimas Notícias</h2>
+            <div id="news-list">
+                <!-- Notícias serão adicionadas aqui -->
+            </div>
+        </section>
+
+        <!-- PRÓXIMA CORRIDA -->
+        <section id="next-race-section">
+            <div class="next-race">
+                <h3>🏁 Próxima Corrida: Grande Prêmio de Abu Dhabi</h3>
+                <p>Yas Marina Circuit – 14 de dezembro de 2025 🇦🇪</p>
+                <div class="countdown">Faltam 5 dias para a última corrida da temporada!</div>
+            </div>
+        </section>
+
+        <!-- CALENDÁRIO -->
+        <section id="calendar-section">
+            <h2>📅 Calendário da Fórmula 1 - 2025</h2>
+            <div id="calendar-list">
+                <!-- Corridas serão adicionadas aqui -->
+            </div>
+        </section>
+
+        <!-- PILOTOS -->
+        <section id="drivers-section">
+            <h2>🏎️ Principais Pilotos da Temporada 2025</h2>
+            <div id="drivers-list" class="cards-grid">
+                <!-- Pilotos serão adicionados aqui -->
+            </div>
+        </section>
+
+        <!-- EQUIPES -->
+        <section id="teams-section">
+            <h2>🏁 Principais Equipes da Temporada 2025</h2>
+            <div id="teams-list" class="cards-grid">
+                <!-- Equipes serão adicionadas aqui -->
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 F1Blog – Independente e apaixonado por Fórmula 1</p>
+            <p>Este site não é afiliado à Formula One World Championship Limited.</p>
+        </footer>
+    </div>
+
+    <div id="message"></div>
+    <script src="script.js"></script>
+</body>
+</html>
