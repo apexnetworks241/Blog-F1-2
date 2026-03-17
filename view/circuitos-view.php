@@ -8,83 +8,83 @@
     </div>
     <div id="circuits-list" class="cards-grid"><div class="card">
     <div class="card-flag">🇮</div>
-    <div class="card-title">Autodromo Nazionale di Monza</div>
+    <div class="card-title"><?= $Monza?>Autodromo Nazionale di Monza</div>
     <div class="card-subtitle">Monza · Itália</div>
     <div class="card-meta"><span class="card-badge">📏 5,793 km</span><span class="card-badge">🔄 53 voltas</span><span class="card-badge">📅 1º GP: 1950</span><span class="card-badge">🌍 Europa</span></div><p class="card-desc">O templo da velocidade. Maior velocidade média do calendário. Pátio da torcida Ferrari desde 1950.</p></div><div class="card">
     <div class="card-flag">🇧</div>
-    <div class="card-title">Circuit de Spa-Francorchamps</div>
+    <div class="card-title"><?= $Spa?>Circuit de Spa-Francorchamps</div>
     <div class="card-subtitle">Spa · Bélgica</div>
     <div class="card-meta"><span class="card-badge">📏 7,004 km</span><span class="card-badge">🔄 44 voltas</span><span class="card-badge">📅 1º GP: 1950</span><span class="card-badge">🌍 Europa</span></div><p class="card-desc">O maior e mais desafiante. Eau Rouge/Raidillon, clima imprevisível e história em cada curva.</p></div><div class="card">
     <div class="card-flag">🇬</div>
-    <div class="card-title">Silverstone Circuit</div>
+    <div class="card-title"><?= $Sv?>Silverstone Circuit</div>
     <div class="card-subtitle">Silverstone · Reino Unido</div>
     <div class="card-meta"><span class="card-badge">📏 5,891 km</span><span class="card-badge">🔄 52 voltas</span><span class="card-badge">📅 1º GP: 1950</span><span class="card-badge">🌍 Europa</span></div><p class="card-desc">Berço da Fórmula 1. O primeiro GP da história foi aqui em 1950. Copse e Maggots são lendárias.</p></div><div class="card">
     <div class="card-flag">🇲</div>
-    <div class="card-title">Circuit de Monaco</div>
+    <div class="card-title"><?= $Monaco?>Circuit de Monaco</div>
     <div class="card-subtitle">Monte Carlo · Mônaco</div>
     <div class="card-meta"><span class="card-badge">📏 3,337 km</span><span class="card-badge">🔄 78 voltas</span><span class="card-badge">📅 1º GP: 1950</span><span class="card-badge">🌍 Europa</span></div><p class="card-desc">O mais lento e mais famoso. Ruas estreitas, muros cerrados e glamour únicos no esporte motor.</p></div><div class="card">
     <div class="card-flag">🇪</div>
-    <div class="card-title">Circuit de Barcelona-Catalunya</div>
+    <div class="card-title"><?= $Bar?>Circuit de Barcelona-Catalunya</div>
     <div class="card-subtitle">Barcelona · Espanha</div>
     <div class="card-meta"><span class="card-badge">📏 4,657 km</span><span class="card-badge">🔄 66 voltas</span><span class="card-badge">📅 1º GP: 1991</span><span class="card-badge">🌍 Europa</span></div><p class="card-desc">Clássico circuito de testes. Exige equilíbrio aerodinâmico perfeito. Favorito dos engenheiros.</p></div><div class="card">
     <div class="card-flag">🇭</div>
-    <div class="card-title">Hungaroring</div>
+    <div class="card-title"><?= $budapeste?>Hungaroring</div>
     <div class="card-subtitle">Budapeste · Hungria</div>
     <div class="card-meta"><span class="card-badge">📏 4,381 km</span><span class="card-badge">🔄 70 voltas</span><span class="card-badge">📅 1º GP: 1986</span><span class="card-badge">🌍 Europa</span></div><p class="card-desc">Muito técnico, poucas ultrapassagens. Calor intenso e asfalto complicado exigem muito dos pneus.</p></div><div class="card">
     <div class="card-flag">🇦</div>
-    <div class="card-title">Red Bull Ring</div>
+    <div class="card-title"><?= $?>Red Bull Ring</div>
     <div class="card-subtitle">Spielberg · Áustria</div>
     <div class="card-meta"><span class="card-badge">📏 4,318 km</span><span class="card-badge">🔄 71 voltas</span><span class="card-badge">📅 1º GP: 1970</span><span class="card-badge">🌍 Europa</span></div><p class="card-desc">Pista compacta nas montanhas estirias. Reta principal curta e curvas de alta velocidade.</p></div><div class="card">
     <div class="card-flag">🇳</div>
-    <div class="card-title">Circuit Zandvoort</div>
+    <div class="card-title"><?= $?>Circuit Zandvoort</div>
     <div class="card-subtitle">Zandvoort · Holanda</div>
     <div class="card-meta"><span class="card-badge">📏 4,259 km</span><span class="card-badge">🔄 72 voltas</span><span class="card-badge">📅 1º GP: 1952</span><span class="card-badge">🌍 Europa</span></div><p class="card-desc">Entre dunas holandesas, com curvas banqueadas únicas. Grande casa de Max Verstappen.</p></div><div class="card">
     <div class="card-flag">🇮</div>
-    <div class="card-title">Autodromo Enzo e Dino Ferrari</div>
+    <div class="card-title"><?= $?>Autodromo Enzo e Dino Ferrari</div>
     <div class="card-subtitle">Imola · Itália</div>
     <div class="card-meta"><span class="card-badge">📏 4,909 km</span><span class="card-badge">🔄 63 voltas</span><span class="card-badge">📅 1º GP: 1980</span><span class="card-badge">🌍 Europa</span></div><p class="card-desc">Um dos traçados mais históricos. Palco de trágicos acidentes e grandes batalhas ao longo das décadas.</p></div><div class="card">
     <div class="card-flag">🇩</div>
-    <div class="card-title">Nürburgring (GP-Strecke)</div>
+    <div class="card-title"><?= $?>Nürburgring (GP-Strecke)</div>
     <div class="card-subtitle">Nürburg · Alemanha</div>
     <div class="card-meta"><span class="card-badge">📏 5,148 km</span><span class="card-badge">🔄 60 voltas</span><span class="card-badge">📅 1º GP: 1951</span><span class="card-badge">🌍 Europa</span></div><p class="card-desc">A moderna pista alemã. A antiga Nordschleife, com 22 km, era considerada a mais perigosa da história.</p></div><div class="card">
     <div class="card-flag">🇩</div>
-    <div class="card-title">Hockenheimring</div>
+    <div class="card-title"><?= $?>Hockenheimring</div>
     <div class="card-subtitle">Hockenheim · Alemanha</div>
     <div class="card-meta"><span class="card-badge">📏 4,574 km</span><span class="card-badge">🔄 67 voltas</span><span class="card-badge">📅 1º GP: 1970</span><span class="card-badge">🌍 Europa</span></div><p class="card-desc">Alternava com o Nürburgring como sede do GP da Alemanha. Pista técnica com estádio icônico.</p></div><div class="card">
     <div class="card-flag">🇫</div>
-    <div class="card-title">Circuit Paul Ricard</div>
+    <div class="card-title"><?= $?>Circuit Paul Ricard</div>
     <div class="card-subtitle">Le Castellet · França</div>
     <div class="card-meta"><span class="card-badge">📏 5,842 km</span><span class="card-badge">🔄 53 voltas</span><span class="card-badge">📅 1º GP: 1971</span><span class="card-badge">🌍 Europa</span></div><p class="card-desc">Pista no sul da França com múltiplas configurações possíveis. Retornou ao calendário em 2018.</p></div><div class="card">
     <div class="card-flag">🇨</div>
-    <div class="card-title">Circuit Gilles Villeneuve</div>
+    <div class="card-title"><?= $?>Circuit Gilles Villeneuve</div>
     <div class="card-subtitle">Montreal · Canadá</div>
     <div class="card-meta"><span class="card-badge">📏 4,361 km</span><span class="card-badge">🔄 70 voltas</span><span class="card-badge">📅 1º GP: 1978</span><span class="card-badge">🌍 Américas</span></div><p class="card-desc">Circuito em ilha no Rio São Lourenço. O "Muro dos Campeões" elimina favoritos toda temporada.</p></div><div class="card">
     <div class="card-flag">🇲</div>
-    <div class="card-title">Autodromo Hermanos Rodríguez</div>
+    <div class="card-title"><?= $?>Autodromo Hermanos Rodríguez</div>
     <div class="card-subtitle">Cidade do México · México</div>
     <div class="card-meta"><span class="card-badge">📏 4,304 km</span><span class="card-badge">🔄 71 voltas</span><span class="card-badge">📅 1º GP: 1963</span><span class="card-badge">🌍 Américas</span></div><p class="card-desc">A altitude de 2.285 m afeta motores e aerodinâmica. O estádio Foro Sol cria uma atmosfera única.</p></div><div class="card">
     <div class="card-flag">🇧</div>
-    <div class="card-title">Autódromo José Carlos Pace</div>
+    <div class="card-title"><?= $?>Autódromo José Carlos Pace</div>
     <div class="card-subtitle">São Paulo · Brasil</div>
     <div class="card-meta"><span class="card-badge">📏 4,309 km</span><span class="card-badge">🔄 71 voltas</span><span class="card-badge">📅 1º GP: 1973</span><span class="card-badge">🌍 Américas</span></div><p class="card-desc">Interlagos é palco de corridas históricas e chuvas que mudam tudo. Curva do Lago é sua marca.</p></div><div class="card">
     <div class="card-flag">🇺</div>
-    <div class="card-title">Circuit of the Americas</div>
+    <div class="card-title"><?= $?>Circuit of the Americas</div>
     <div class="card-subtitle">Austin · EUA</div>
     <div class="card-meta"><span class="card-badge">📏 5,513 km</span><span class="card-badge">🔄 56 voltas</span><span class="card-badge">📅 1º GP: 2012</span><span class="card-badge">🌍 Américas</span></div><p class="card-desc">Projetado para ser o circuito perfeito da F1 nos EUA. A subida até a curva 1 é espetacular.</p></div><div class="card">
     <div class="card-flag">🇺</div>
-    <div class="card-title">Autódromo do Miami</div>
+    <div class="card-title"><?= $?>Autódromo do Miami</div>
     <div class="card-subtitle">Miami Gardens · EUA</div>
     <div class="card-meta"><span class="card-badge">📏 5,412 km</span><span class="card-badge">🔄 57 voltas</span><span class="card-badge">📅 1º GP: 2022</span><span class="card-badge">🌍 Américas</span></div><p class="card-desc">Circuito de rua ao redor do Hard Rock Stadium. Estreou em 2022 com grande festa.</p></div><div class="card">
     <div class="card-flag">🇺</div>
-    <div class="card-title">Las Vegas Strip Circuit</div>
+    <div class="card-title"><?= $?>Las Vegas Strip Circuit</div>
     <div class="card-subtitle">Las Vegas · EUA</div>
     <div class="card-meta"><span class="card-badge">📏 6,201 km</span><span class="card-badge">🔄 50 voltas</span><span class="card-badge">📅 1º GP: 2023</span><span class="card-badge">🌍 Américas</span></div><p class="card-desc">Pela Strip de Las Vegas. Instalações luxuosas e o espetáculo da cidade que nunca dorme.</p></div><div class="card">
     <div class="card-flag">🇺</div>
-    <div class="card-title">Watkins Glen International</div>
+    <div class="card-title"><?= $?>Watkins Glen International</div>
     <div class="card-subtitle">Watkins Glen · EUA</div>
     <div class="card-meta"><span class="card-badge">📏 5,435 km</span><span class="card-badge">🔄 59 voltas</span><span class="card-badge">📅 1º GP: 1961</span><span class="card-badge">🌍 Américas</span></div><p class="card-desc">Clássico americano que sediou o GP dos EUA de 1961 a 1980. Traçado técnico em Nova York.</p></div><div class="card">
     <div class="card-flag">🇺</div>
-    <div class="card-title">Indianapolis Motor Speedway</div>
+    <div class="card-title"><?= $?>Indianapolis Motor Speedway</div>
     <div class="card-subtitle">Indianápolis · EUA</div>
     <div class="card-meta"><span class="card-badge">📏 4,192 km</span><span class="card-badge">🔄 73 voltas</span><span class="card-badge">📅 1º GP: 1950</span><span class="card-badge">🌍 Américas</span></div><p class="card-desc">O histórico oval que fez parte do campeonato em 1950. Retornou como GP dos EUA de 2000 a 2007.</p></div><div class="card">
     <div class="card-flag">🇦</div>
