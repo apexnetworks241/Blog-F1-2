@@ -2,7 +2,7 @@
    F1 BLOG — style.css
    Tema: Racing editorial — Barlow Condensed
 ============================================ */
-s
+
 /* ============================================
    VARIÁVEIS & RESET
 ============================================ */
@@ -825,4 +825,212 @@ footer {
     .admin-fields textarea { grid-column: 1; }
 
     .modal-box         { padding: 28px 20px; }
+}
+/* ============================================
+   RANKING CARDS (hero page)
+============================================ */
+.cards-section {
+    padding: 48px 24px 72px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* override .card defaults for ranking cards */
+.cards-section .card {
+    border-left: none;
+    border-radius: 0;
+    border: 1px solid var(--border);
+    padding: 0;
+    box-shadow: var(--shadow);
+}
+.cards-section .card::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: linear-gradient(90deg, var(--red), var(--red-dark));
+    position: static;
+    width: auto;
+    border-radius: 0;
+    pointer-events: auto;
+    background-color: unset;
+}
+.cards-section .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-body { padding: 24px 24px 20px; }
+
+.card-label {
+    font-family: var(--font-head);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 6px;
+}
+
+/* ranking card title — override .card-title */
+.cards-section .card-title {
+    font-family: var(--font-head);
+    font-size: 26px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--border);
+}
+
+/* ── RANKING LIST ── */
+.rank-list { display: flex; flex-direction: column; }
+
+.rank-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
+}
+.rank-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.rank-pos {
+    font-family: var(--font-head);
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1;
+    min-width: 30px;
+    text-align: center;
+}
+.rank-pos.gold   { color: #c9a84c; }
+.rank-pos.silver { color: #999; }
+.rank-pos.bronze { color: #b5673a; }
+
+.rank-info { flex: 1; min-width: 0; }
+.rank-name {
+    font-family: var(--font-head);
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    color: var(--text);
+    line-height: 1;
+}
+.rank-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 3px;
+}
+
+.rank-badge {
+    font-family: var(--font-head);
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--red);
+    white-space: nowrap;
+    text-align: right;
+    line-height: 1;
+}
+.rank-badge span {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 18px;
+    font-family: var(--font-head);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--red);
+    text-decoration: none;
+    transition: gap .2s;
+}
+.card-link:hover { gap: 10px; }
+.card-link svg { width: 12px; height: 12px; fill: var(--red); }
+
+.card-watermark {
+    position: absolute;
+    right: -8px; bottom: -12px;
+    font-family: var(--font-head);
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(0,0,0,.04);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+}
+body.dark-mode .card-watermark { color: rgba(255,255,255,.03); }
+
+@media (max-width: 768px) {
+    .cards-section { padding: 32px 20px 48px; grid-template-columns: 1fr; }
+}
+/* Centralizar conteúdo do form */
+form {
+    text-align: center;
+}
+
+/* Labels */
+label.inserir {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    color: #000000;
+}
+
+/* Inputs e textarea */
+input,
+textarea {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 14px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Foco */
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #e10600;
+}
+
+/* Textarea */
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Botão */
+input[type="submit"] {
+    margin-top: 15px;
+    background: #e10600;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Hover */
+input[type="submit"]:hover {
+    background: #ff1a1a;
 }

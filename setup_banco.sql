@@ -3,7 +3,6 @@
 
 DROP TABLE IF EXISTS participa;
 DROP TABLE IF EXISTS Perfil;
-DROP TABLE IF EXISTS Posts;
 DROP TABLE IF EXISTS Circuitos;
 DROP TABLE IF EXISTS gp;
 DROP TABLE IF EXISTS temp_equipes;
@@ -50,13 +49,6 @@ CREATE TABLE Circuitos (
         ON DELETE RESTRICT
 );
 
-CREATE TABLE Posts (
-    id_post INTEGER PRIMARY KEY,
-    conteudo TEXT,
-    data_post TEXT,
-    titulo TEXT
-);
-
 CREATE TABLE Perfil (
     id_perfil INTEGER PRIMARY KEY,
     nome_perfil TEXT,
@@ -75,4 +67,23 @@ CREATE TABLE participa (
     FOREIGN KEY (fk_temp_equipes_id_temp)
         REFERENCES temp_equipes(id_temp)
         ON DELETE RESTRICT
+);
+
+DROP TABLE IF EXISTS blog;
+DROP TABLE IF EXISTS posts;
+
+-- ===== TABELA DO BLOG =====
+CREATE TABLE blog (
+    id_blog INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    autor TEXT NOT NULL,
+    email_adm TEXT NOT NULL
+);
+
+-- ===== TABELA DE POSTS =====
+CREATE TABLE posts (
+    id_post INTEGER PRIMARY KEY AUTOINCREMENT,
+    titulo TEXT NOT NULL,
+    conteudo TEXT NOT NULL,
+    data_post DATE NOT NULL
 );
